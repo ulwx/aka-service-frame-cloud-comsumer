@@ -1,0 +1,18 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: aka-service-frame-cloud-comsumer
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.137.199:8848 # nacos的服务端地址
+        file-extension: yml # 配置文件格式
+        group: AKA_CLOUD_GROUP
+        namespace: 607bcdec-963d-4ae0-b902-da0f469d9dcf
+      discovery:
+        server-addr: 192.168.137.199:8848
+        group: AKA_CLOUD_GROUP
+        namespace: 607bcdec-963d-4ae0-b902-da0f469d9dcf
+  profiles:
+    active: dev # 环境标识

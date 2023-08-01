@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>aka-service-frame-cloud-comsumer</artifactId>
+  <version>2.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+    <parent>
+        <groupId>com.github.ulwx</groupId>
+        <artifactId>aka-common-parent</artifactId>
+        <version>2.0-SNAPSHOT</version>
+        <relativePath>../aka-common-parent/pom.xml</relativePath>
+    </parent>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <excludes>
+                        <exclude>*.xml</exclude>
+                        <exclude>aka*.properties</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+  <dependencies>
+
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-test</artifactId>
+          <scope>test</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>com.github.ulwx</groupId>
+          <artifactId>aka-common-cloud</artifactId>
+      </dependency>
+
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-core</artifactId>
+          <version>1.2.3</version>
+      </dependency>
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>druid</artifactId>
+          <version>1.2.14</version>
+      </dependency>
+      <dependency>
+          <groupId>com.github.ulwx</groupId>
+          <artifactId>aka-service-frame</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>1.2.3</version>
+      </dependency>
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>8.0.23</version>
+      </dependency>
+    <dependency>
+        <artifactId>aka-dbutils-spring-resttemplate-starter</artifactId>
+        <groupId>com.github.ulwx</groupId>
+    </dependency>
+  </dependencies>
+
+</project>
