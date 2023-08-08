@@ -1,5 +1,7 @@
 server:
   port: 8089
+logging:
+  config: classpath:logback-spring.xml
 spring:
   application:
     name: aka-service-frame-cloud-comsumer

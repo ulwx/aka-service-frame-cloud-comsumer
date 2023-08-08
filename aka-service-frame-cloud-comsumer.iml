@@ -207,6 +207,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-context-support:5.3.27" level="project" />
     <orderEntry type="library" name="Maven: com.stoyanr:evictor:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.7.12" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.skywalking:apm-toolkit-logback-1.x:8.16.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.13.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:2.2" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />
