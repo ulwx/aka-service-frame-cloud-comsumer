@@ -12,10 +12,14 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.apache.skywalking.apm.toolkit.trace.ActiveSpan;
+import org.apache.skywalking.apm.toolkit.trace.TraceContext;
 import org.springframework.http.ResponseEntity;
 
 import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Tag(name = "用户接口",description = "通用用户接口" )
 public class UserAction extends ActionSupport {
@@ -32,10 +36,29 @@ public class UserAction extends ActionSupport {
 
         Type typeOfT = new com.google.gson.reflect.TypeToken<CbResult<LoginResponse>>(){}.getType();
         CbResult<LoginResponse> result=ObjectUtils.fromJsonToObject(ret.getBody(), typeOfT);
+
+        LoginResponse response=result.getData();
+
+        this.testTrace(response);
         return result;
 
     }
+    @org.apache.skywalking.apm.toolkit.trace.Trace
+    @org.apache.skywalking.apm.toolkit.trace.Tags({
+            @org.apache.skywalking.apm.toolkit.trace.Tag(key = "name",value = "arg[0].userId"),
+            @org.apache.skywalking.apm.toolkit.trace.Tag(key = "traceId",value = "returnedObj.traceId")})
+    public Map<String,String> testTrace(LoginResponse myarg){
+        Map<String,String> map=new HashMap<>();
+        map.put("traceId", TraceContext.traceId());
+        this.testInner();
+        return map;
+    }
 
+    public void testInner(){
+        ActiveSpan.tag("my_tag", "my_value");
+        ActiveSpan.error("Test-Error-Reason");
+
+    }
     @Operation(summary = "获取用户列表",description="用于获取用户列表，按条件查询")
     @RequestBody(description = " data in the json format", content = @Content(mediaType = "application/json"))
     @ApiResponse(description = "获取用户列表响应", useReturnTypeSchema=true)
